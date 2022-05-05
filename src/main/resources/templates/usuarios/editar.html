@@ -1,0 +1,40 @@
+<div th:replace="compartilhado/top"></div>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Edição de Usuario</h1>
+        <p class="mb-4">
+            Aqui iremos editar os Usuarios
+        </p>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4" style="padding: 30px;">
+            <form method="POST" th:action="@{'/Usuarios/' + ${usuario?.id} + '/atualizar'}">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" th:value="${usuario?.nome}" required id="nome" name="nome" placeholder="Digite o seu usuario">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" th:value="${usuario?.email}" required id="email" name="email" placeholder="Digite o seu email">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" th:value="${usuario?.senha}" required id="senha" name="senha" placeholder="Digite a sua senha">
+                </div>
+
+                
+                  <div  class="form-group">
+                    <div label for="observacao">Tipos de cartão </label></div>
+                    <td><a th:href="@{'/usuarios/' + ${usuario.id}}" class="btn btn-danger">Adicionar Cartão comum</td>
+                    <td><a th:href="@{'/usuarios/' + ${usuario.id}}" class="btn btn-danger">Adicionar Cartão Trabalhador</td>
+                    <td><a th:href="@{'/usuarios/' + ${usuario.id}}" class="btn btn-danger" >Adicionar Cartão Estudante</td>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+<div th:replace="compartilhado/baixo"></div>
